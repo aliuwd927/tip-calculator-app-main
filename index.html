@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="index.css" />
+
+    <title>Frontend Mentor | Tip calculator app</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <main class="wrapper_card">
+        <article class="card_left">
+          <form class="bill_input">
+            <h1>Bill</h1>
+            <input type="number" placeholder="Input Amount of Bill" step="0.01" min="0" class="_billInput" value="0"/>
+          </form>
+          <section class="select_tip">
+            <button type="submit" value="0.05" class="tip_button">5%</button>
+            <button type="submit" value="0.10" class="tip_button">10%</button>
+            <button type="submit" value="0.15" class="tip_button">15%</button>
+            <button type="submit" value="0.20" class="tip_button">20%</button>
+            <button type="submit" value="0.25" class="tip_button">25%</button>
+            <button type="submit" value="0.50" class="tip_button">50%</button>
+          </section>
+          <form class="num_people">
+            <h1>Number of people</h1>
+            <input type="number" placeholder="Enter amount of people" min="0" value="0" class="num_of_people">
+          </section>
+        </article>
+        <article class="card_right">
+          <section class="display_amt">
+            <div class="display_tip_text">
+              <h1>Tip Amount</h1>
+              <p>/ person</p>
+            </div>
+            <div class="display_tip_number">
+              <h1>0</h1>
+            </div>
+          </section>
+          <section class="display_total">
+            <div class="display_total_txt">
+              <h1>Total Amount</h1>
+              <p>/ person</p>
+            </div>
+            <div class="display_total_number">
+              <h1 class="display_num">0</h1>
+            </div>
+          </section>
+          <form class="display_reset">
+            <button type="submit">Reset</button>
+          </form>
+        </article>
+      </main>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
