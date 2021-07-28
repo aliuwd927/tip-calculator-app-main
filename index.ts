@@ -20,5 +20,13 @@ num_of_people?.addEventListener("input", () =>{
 
 //Get all buttons
 for(let button of _tipButtons){
-  console.log(button);
+  button?.addEventListener("click", (e)=>{
+  let tipAmt:number = Number((e.target as HTMLButtonElement).value);
+  console.log(tipAmt);
+  });
 }
+
+//Math
+/* 
+
+*/
