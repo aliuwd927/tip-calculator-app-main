@@ -16,5 +16,12 @@ num_of_people === null || num_of_people === void 0 ? void 0 : num_of_people.addE
 });
 //Get all buttons
 for (let button of _tipButtons) {
-    console.log(button);
+    button === null || button === void 0 ? void 0 : button.addEventListener("click", (e) => {
+        let tipAmt = Number(e.target.value);
+        console.log(tipAmt);
+    });
 }
+//Math
+/*
+
+*/ 
