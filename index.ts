@@ -2,12 +2,20 @@ let _billInput:HTMLInputElement  =  document.querySelector("._billInput");
 let num_of_people:HTMLInputElement = document.querySelector(".num_of_people");
 let _tipButtons:Array<HTMLElement> =  Array.from(document.querySelectorAll(".tip_button"));
 
+interface Bill{
+  billAmount: number;
+  numOfPeople: number;
+  tipAmount: number;
+};
+
+let billObj:Bill[] = [];
 
 //Dynamically get input value
 _billInput?.addEventListener('input', () =>{
   let getBillAmt = _billInput.value;
     if(getBillAmt.length > 0){
-      console.log(getBillAmt)
+      //console.log(getBillAmt);
+      //billObj.billAmount = parseFloat(getBillAmt);
     }
 });
 
@@ -27,6 +35,7 @@ for(let button of _tipButtons){
 }
 
 //Math
-/* 
-
-*/
+function calculate(amt):void{
+  //Change :void to :number later
+  console.log(amt)
+}
