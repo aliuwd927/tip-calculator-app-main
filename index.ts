@@ -48,8 +48,13 @@ Async and await because intial value is undefined
 until value specified. 
 */
 
-const math = (x):void =>{
-  console.log(x)
-}
+async function test(x){
+  if(x.billAmount !== undefined){
+    await Promise.resolve(console.log(x.billAmount));
+  };
+};
 //Math
-math(billObj)
+test(billObj)
+
+
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#defining_getters_and_setters

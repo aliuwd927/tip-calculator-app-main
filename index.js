@@ -1,3 +1,12 @@
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 //Global variables
 let _billInput = document.querySelector("._billInput");
 let num_of_people = document.querySelector(".num_of_people");
@@ -37,8 +46,15 @@ num_of_people === null || num_of_people === void 0 ? void 0 : num_of_people.addE
 Async and await because intial value is undefined
 until value specified.
 */
-const math = (x) => {
-    console.log(x);
-};
+function test(x) {
+    return __awaiter(this, void 0, void 0, function* () {
+        if (x.billAmount !== undefined) {
+            yield Promise.resolve(console.log(x.billAmount));
+        }
+        ;
+    });
+}
+;
 //Math
-math(billObj);
+test(billObj);
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#defining_getters_and_setters
