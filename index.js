@@ -11,35 +11,51 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 let _billInput = document.querySelector("._billInput");
 let num_of_people = document.querySelector(".num_of_people");
 let _tipButtons = Array.from(document.querySelectorAll(".tip_button"));
+//Set Interface Rules
+class Bill {
+    set billAmount(value) {
+        this._billAmount = value;
+    }
+    set tipAmount(value) {
+        this._tipAmount = value;
+    }
+    set numOfPeople(value) {
+        this._numOfPeople = value;
+    }
+    calculate() {
+        if (this._billAmount !== undefined) {
+            console.log(this._billAmount);
+        }
+        else {
+            console.log('error');
+        }
+    }
+}
 /*
 Bill Object to pass into function??
 How??
 Async and Await because of value undefined?
  */
-let billObj = {
-    billAmount: undefined,
-    tipAmount: undefined,
-    numOfPeople: undefined
-};
+let billObj = new Bill();
 //Dynamically get input value
 _billInput === null || _billInput === void 0 ? void 0 : _billInput.addEventListener('input', () => {
     let getBillAmt = _billInput.value;
     if (getBillAmt.length > 0) {
-        billObj.billAmount = parseFloat(getBillAmt);
+        billObj._billAmount = parseFloat(getBillAmt);
     }
 });
 //Get the items that was clicked;
 for (let button of _tipButtons) {
     button === null || button === void 0 ? void 0 : button.addEventListener("click", (e) => {
         let tipAmt = Number(e.target.value);
-        billObj.tipAmount = tipAmt;
+        billObj._tipAmount = tipAmt;
     });
 }
 //Dynamically get input value
 num_of_people === null || num_of_people === void 0 ? void 0 : num_of_people.addEventListener("input", () => {
     let amtOfPeople = num_of_people.value;
     if (amtOfPeople.length > 0) {
-        billObj.numOfPeople = parseInt(amtOfPeople);
+        billObj._numOfPeople = parseInt(amtOfPeople);
     }
 });
 /*
