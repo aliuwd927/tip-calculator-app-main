@@ -7,7 +7,10 @@ let _tipButtons:Array<HTMLElement> =  Array.from(document.querySelectorAll(".tip
 interface Bill{
   billAmount: number,
   tipAmount: number,
-  numOfPeople: number
+  numOfPeople: number,
+  set billAmt: function name(params:number) {
+    
+  }
 }
 
 /* 
@@ -18,7 +21,10 @@ Async and Await because of value undefined?
 let billObj:Bill = {
   billAmount: undefined,
   tipAmount: undefined,
-  numOfPeople: undefined
+  numOfPeople: undefined,
+  set billAmt (x){
+    this.billAmount = x;
+  }
 }
 
 //Dynamically get input value
