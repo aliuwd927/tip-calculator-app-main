@@ -1,12 +1,3 @@
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 //Global variables
 let _billInput = document.querySelector("._billInput");
 let num_of_people = document.querySelector(".num_of_people");
@@ -22,22 +13,10 @@ class Bill {
     set numOfPeople(value) {
         this._numOfPeople = value;
     }
-    calculate() {
-        if (this._billAmount !== undefined) {
-            console.log(this._billAmount);
-        }
-        else {
-            console.log('error');
-        }
-    }
 }
-/*
-Bill Object to pass into function??
-How??
-Async and Await because of value undefined?
- */
+//Create Bill Object from class Bill
 let billObj = new Bill();
-//Dynamically get input value
+//Dynamically gets input value and set object properties
 _billInput === null || _billInput === void 0 ? void 0 : _billInput.addEventListener('input', () => {
     let getBillAmt = _billInput.value;
     if (getBillAmt.length > 0) {
@@ -51,26 +30,31 @@ for (let button of _tipButtons) {
         billObj._tipAmount = tipAmt;
     });
 }
-//Dynamically get input value
+//Dynamically gets input value and set object properties
 num_of_people === null || num_of_people === void 0 ? void 0 : num_of_people.addEventListener("input", () => {
     let amtOfPeople = num_of_people.value;
     if (amtOfPeople.length > 0) {
         billObj._numOfPeople = parseInt(amtOfPeople);
     }
 });
+//Test to see if Object Properties are empty
 /*
-Async and await because intial value is undefined
-until value specified.
+Figure out how to async and await new items to retrigger function.
+Try while loop?
 */
-function test(x) {
-    return __awaiter(this, void 0, void 0, function* () {
-        if (x.billAmount !== undefined) {
-            yield Promise.resolve(console.log(x.billAmount));
-        }
-        ;
-    });
+const checkProp = () => {
+    const isObjEmpty = Object.keys(billObj);
+    if (isObjEmpty.length === 0) {
+        console.log("Empty");
+    }
+    else {
+        //console.log(isObjEmpty)
+        /* Pass into new function for document write? */
+        displayAmount(isObjEmpty);
+    }
+};
+checkProp();
+function displayAmount(x) {
+    console.log(x);
 }
-;
-//Math
-test(billObj);
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#defining_getters_and_setters

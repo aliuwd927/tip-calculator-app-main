@@ -1,74 +1,72 @@
 //Global variables
-let _billInput:HTMLInputElement  =  document.querySelector("._billInput");
-let num_of_people:HTMLInputElement = document.querySelector(".num_of_people");
-let _tipButtons:Array<HTMLElement> =  Array.from(document.querySelectorAll(".tip_button"));
+let _billInput: HTMLInputElement = document.querySelector("._billInput");
+let num_of_people: HTMLInputElement = document.querySelector(".num_of_people");
+let _tipButtons: Array<HTMLElement> = Array.from(document.querySelectorAll(".tip_button"));
 
 //Set Interface Rules
-class Bill{
+class Bill {
   _billAmount: number;
   _tipAmount: number;
   _numOfPeople: number;
-  
-  set billAmount(value:number){
+  set billAmount(value: number) {
     this._billAmount = value;
   }
-  set tipAmount(value:number){
+  set tipAmount(value: number) {
     this._tipAmount = value;
   }
-  set numOfPeople(value:number){
+  set numOfPeople(value: number) {
     this._numOfPeople = value;
   }
-
-  calculate(){
-    if(this._billAmount !== undefined){
-      console.log(this._billAmount);
-    }else{
-      console.log('error')
-    }
-  }
 }
 
-/* 
-Bill Object to pass into function?? 
-How?? 
-Async and Await because of value undefined?
- */
-let billObj:Bill = new Bill();
+//Create Bill Object from class Bill
+let billObj: Bill = new Bill();
 
-//Dynamically get input value
-_billInput?.addEventListener('input', () =>{
+//Dynamically gets input value and set object properties
+_billInput?.addEventListener('input', () => {
   let getBillAmt = _billInput.value;
-    if(getBillAmt.length > 0){
-      billObj._billAmount = parseFloat(getBillAmt);
-    }
+  if (getBillAmt.length > 0) {
+    billObj._billAmount = parseFloat(getBillAmt);
+  }
 });
 //Get the items that was clicked;
-for(let button of _tipButtons){
-  button?.addEventListener("click", (e)=>{
-  let tipAmt:number = Number((e.target as HTMLButtonElement).value);
-  billObj._tipAmount = tipAmt;
+for (let button of _tipButtons) {
+  button?.addEventListener("click", (e) => {
+    let tipAmt: number = Number((e.target as HTMLButtonElement).value);
+    billObj._tipAmount = tipAmt;
   });
 }
-//Dynamically get input value
-num_of_people?.addEventListener("input", () =>{
+//Dynamically gets input value and set object properties
+num_of_people?.addEventListener("input", () => {
   let amtOfPeople = num_of_people.value;
-    if(amtOfPeople.length > 0){
-      billObj._numOfPeople = parseInt(amtOfPeople);
-    }
+  if (amtOfPeople.length > 0) {
+    billObj._numOfPeople = parseInt(amtOfPeople);
+  }
 });
 
+//Test to see if Object Properties are empty
 /* 
-Async and await because intial value is undefined 
-until value specified. 
+Figure out how to async and await new items to retrigger function.
+Try while loop?
 */
+const checkProp = ():void=>{
+  const isObjEmpty = Object.keys(billObj);
+      if(isObjEmpty.length === 0){
+      console.log("Empty");
+    }else{
+      //console.log(isObjEmpty)
+      
+      /* Pass into new function for document write? */
+      
+      displayAmount(isObjEmpty);
+    } 
+    
+  }
+checkProp();
 
-async function test(x){
-  if(x.billAmount !== undefined){
-    await Promise.resolve(console.log(x.billAmount));
-  };
-};
-//Math
-test(billObj)
+  function displayAmount(x):void{
+   console.log(x)
+  }
 
 
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#defining_getters_and_setters
