@@ -8,15 +8,6 @@ class Bill {
   _billAmount: number;
   _tipAmount: number;
   _numOfPeople: number;
-  set billAmount(value: number) {
-    this._billAmount = value;
-  }
-  set tipAmount(value: number) {
-    this._tipAmount = value;
-  }
-  set numOfPeople(value: number) {
-    this._numOfPeople = value;
-  }
 }
 
 //Create Bill Object from class Bill
@@ -54,19 +45,13 @@ const checkProp = ():void=>{
       if(isObjEmpty.length === 0){
       console.log("Empty");
     }else{
-      //console.log(isObjEmpty)
-      
-      /* Pass into new function for document write? */
-      
-      displayAmount(isObjEmpty);
+      console.log(isObjEmpty)
     } 
     
   }
-checkProp();
 
-  function displayAmount(x):void{
-   console.log(x)
-  }
+
+
 
 
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#defining_getters_and_setters
