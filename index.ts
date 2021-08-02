@@ -50,6 +50,9 @@ const checkProp = ():void=>{
     
   }
 
+  const objProxy = new Proxy(billObj,{
+    
+  })
 
 
 
