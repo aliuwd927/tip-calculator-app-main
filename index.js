@@ -4,15 +4,6 @@ let num_of_people = document.querySelector(".num_of_people");
 let _tipButtons = Array.from(document.querySelectorAll(".tip_button"));
 //Set Interface Rules
 class Bill {
-    set billAmount(value) {
-        this._billAmount = value;
-    }
-    set tipAmount(value) {
-        this._tipAmount = value;
-    }
-    set numOfPeople(value) {
-        this._numOfPeople = value;
-    }
 }
 //Create Bill Object from class Bill
 let billObj = new Bill();
@@ -22,12 +13,14 @@ _billInput === null || _billInput === void 0 ? void 0 : _billInput.addEventListe
     if (getBillAmt.length > 0) {
         billObj._billAmount = parseFloat(getBillAmt);
     }
+    calculateTotal();
 });
 //Get the items that was clicked;
 for (let button of _tipButtons) {
     button === null || button === void 0 ? void 0 : button.addEventListener("click", (e) => {
         let tipAmt = Number(e.target.value);
         billObj._tipAmount = tipAmt;
+        calculateTotal();
     });
 }
 //Dynamically gets input value and set object properties
@@ -36,25 +29,29 @@ num_of_people === null || num_of_people === void 0 ? void 0 : num_of_people.addE
     if (amtOfPeople.length > 0) {
         billObj._numOfPeople = parseInt(amtOfPeople);
     }
+    calculateTotal();
 });
 //Test to see if Object Properties are empty
-/*
-Figure out how to async and await new items to retrigger function.
-Try while loop?
-*/
 const checkProp = () => {
     const isObjEmpty = Object.keys(billObj);
     if (isObjEmpty.length === 0) {
         console.log("Empty");
     }
     else {
-        //console.log(isObjEmpty)
-        /* Pass into new function for document write? */
-        displayAmount(isObjEmpty);
+        console.log(isObjEmpty);
     }
 };
-checkProp();
-function displayAmount(x) {
-    console.log(x);
+//Fucntion updates everytime a change happens.
+function calculateTotal() {
+    let tipPerPerson = (billObj._billAmount * billObj._tipAmount) / billObj._numOfPeople;
+    let billPerPerson = billObj._billAmount / billObj._numOfPeople;
+    let totalAmount = tipPerPerson + billPerPerson;
+    if (isNaN(tipPerPerson) && isNaN(billPerPerson)) {
+        return;
+    }
+    else {
+        //This should output to DOM;
+        console.log(tipPerPerson.toFixed(2));
+        console.log(totalAmount.toFixed(2));
+    }
 }
-//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#defining_getters_and_setters

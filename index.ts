@@ -19,13 +19,16 @@ _billInput?.addEventListener('input', () => {
   if (getBillAmt.length > 0) {
     billObj._billAmount = parseFloat(getBillAmt);
   }
+  calculateTotal();
 });
 //Get the items that was clicked;
 for (let button of _tipButtons) {
   button?.addEventListener("click", (e) => {
     let tipAmt: number = Number((e.target as HTMLButtonElement).value);
     billObj._tipAmount = tipAmt;
+    calculateTotal();
   });
+  
 }
 //Dynamically gets input value and set object properties
 num_of_people?.addEventListener("input", () => {
@@ -33,13 +36,10 @@ num_of_people?.addEventListener("input", () => {
   if (amtOfPeople.length > 0) {
     billObj._numOfPeople = parseInt(amtOfPeople);
   }
+  calculateTotal();
 });
 
 //Test to see if Object Properties are empty
-/* 
-Figure out how to async and await new items to retrigger function.
-Try while loop?
-*/
 const checkProp = ():void=>{
   const isObjEmpty = Object.keys(billObj);
       if(isObjEmpty.length === 0){
@@ -47,14 +47,18 @@ const checkProp = ():void=>{
     }else{
       console.log(isObjEmpty)
     } 
-    
   }
 
-  const objProxy = new Proxy(billObj,{
-    
-  })
-
-
-
-
-//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#defining_getters_and_setters
+//Fucntion updates everytime a change happens.
+function calculateTotal(){
+  let tipPerPerson = (billObj._billAmount* billObj._tipAmount)/billObj._numOfPeople;
+  let billPerPerson = billObj._billAmount / billObj._numOfPeople;
+  let totalAmount = tipPerPerson + billPerPerson;
+    if(isNaN(tipPerPerson) && isNaN(billPerPerson)){
+      return;
+    }else{
+      //This should output to DOM;
+      console.log(tipPerPerson.toFixed(2));
+      console.log(totalAmount.toFixed(2));
+    }
+}
