@@ -49,7 +49,7 @@ const checkProp = ():void=>{
     } 
   }
 
-//Fucntion updates everytime a change happens.
+//Function updates everytime a change happens and output to DOM
 function calculateTotal(){
   let tipPerPerson = (billObj._billAmount* billObj._tipAmount)/billObj._numOfPeople;
   let billPerPerson = billObj._billAmount / billObj._numOfPeople;
@@ -58,7 +58,7 @@ function calculateTotal(){
       return;
     }else{
       //This should output to DOM;
-      console.log(tipPerPerson.toFixed(2));
-      console.log(totalAmount.toFixed(2));
-    }
+      document.querySelector(".display_tip_value").innerHTML = tipPerPerson.toFixed(2).toString();
+      document.querySelector(".display_total_value").innerHTML = totalAmount.toFixed(2).toString();
+    };
 }
