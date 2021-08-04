@@ -28,7 +28,6 @@ for (let button of _tipButtons) {
     billObj._tipAmount = tipAmt;
     calculateTotal();
   });
-  
 }
 //Dynamically gets input value and set object properties
 num_of_people?.addEventListener("input", () => {
