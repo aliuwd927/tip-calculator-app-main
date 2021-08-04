@@ -8,6 +8,7 @@ html,
 body {
   height: 100%;
   max-width: 100vw;
+  background-color: #c5e4e7;
 }
 
 #wrapper {
@@ -26,6 +27,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #ffffff;
+  border-radius: 25px;
   border: 1px solid black;
 }
 
@@ -37,5 +40,37 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  border-radius: 25px;
   border: 1px solid green;
+}
+
+input {
+  background-color: #f3f9fa;
+  stroke: #979797;
+}
+input,
+textarea {
+  font-family: Space Mono;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 36px;
+  text-align: right;
+  color: #00474b;
+}
+
+.select_tip_button {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+button {
+  height: 48px;
+  width: 117px;
+  background-color: #00474b;
+  color: #ffffff;
+  font-size: 24px;
+  line-height: 36px;
 }
