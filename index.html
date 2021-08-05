@@ -11,6 +11,9 @@
       sizes="32x32"
       href="./images/favicon-32x32.png"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css" />
 
     <title>Frontend Mentor | Tip calculator app</title>
@@ -24,16 +27,14 @@
             <input type="number" placeholder="Input Amount of Bill" step="0.01" min="0" class="_billInput" value="0"/>
           </form>
           <section class="select_tip">
-            <div class="select_tip_text_container">
               <h1 class="select_tip_text">Select Tip %</h1>
-            </div>
             <div class="select_tip_button">
-            <button type="submit" value="0.05" class="tip_button">5%</button>
-            <button type="submit" value="0.10" class="tip_button">10%</button>
-            <button type="submit" value="0.15" class="tip_button">15%</button>
-            <button type="submit" value="0.20" class="tip_button">20%</button>
-            <button type="submit" value="0.25" class="tip_button">25%</button>
-            <button type="submit" value="0.50" class="tip_button">50%</button>
+              <button type="submit" value="0.05" class="tip_button">5%</button>
+              <button type="submit" value="0.10" class="tip_button">10%</button>
+              <button type="submit" value="0.15" class="tip_button">15%</button>
+              <button type="submit" value="0.20" class="tip_button">20%</button>
+              <button type="submit" value="0.25" class="tip_button">25%</button>
+              <button type="submit" value="0.50" class="tip_button">50%</button>
             </div>
           </section>
           <form class="num_people">
@@ -61,7 +62,7 @@
             </div>
           </section>
           <form class="display_reset">
-            <button type="submit">Reset</button>
+            <button type="submit" class="display_reset_btn">Reset</button>
           </form>
         </article>
       </main>

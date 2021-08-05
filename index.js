@@ -2,6 +2,7 @@
 let _billInput = document.querySelector("._billInput");
 let num_of_people = document.querySelector(".num_of_people");
 let _tipButtons = Array.from(document.querySelectorAll(".tip_button"));
+let reset_btn = document.querySelector(".display_reset_btn");
 //Set Interface Rules
 class Bill {
 }
@@ -56,3 +57,7 @@ function calculateTotal() {
     }
     ;
 }
+reset_btn === null || reset_btn === void 0 ? void 0 : reset_btn.addEventListener("click", () => {
+    document.querySelector(".display_tip_value").innerHTML = Number(0).toString();
+    document.querySelector(".display_total_value").innerHTML = Number(0).toString();
+});
