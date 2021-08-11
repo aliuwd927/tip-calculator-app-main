@@ -35,12 +35,7 @@ num_of_people === null || num_of_people === void 0 ? void 0 : num_of_people.addE
 //Test to see if Object Properties are empty
 const checkProp = () => {
     const isObjEmpty = Object.keys(billObj);
-    if (isObjEmpty.length === 0) {
-        console.log("Empty");
-    }
-    else {
-        console.log(isObjEmpty);
-    }
+    isObjEmpty.length ? console.log("Empty") : console.log(isObjEmpty);
 };
 //Function updates everytime a change happens and output to DOM
 function calculateTotal() {

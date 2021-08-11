@@ -42,12 +42,8 @@ num_of_people?.addEventListener("input", () => {
 //Test to see if Object Properties are empty
 const checkProp = ():void=>{
   const isObjEmpty = Object.keys(billObj);
-      if(isObjEmpty.length === 0){
-      console.log("Empty");
-    }else{
-      console.log(isObjEmpty)
-    } 
-  }
+    isObjEmpty.length ? console.log("Empty") : console.log(isObjEmpty);
+  };
 
 //Function updates everytime a change happens and output to DOM
 function calculateTotal(){
